@@ -28,9 +28,9 @@ spec:
                 name: {{ template "mariadb.fullname" . }}
                 key: mariadb-password
           - name: MARIADB_USER
-              value: {{ .Values.username | quote }} 
+            value: {{ .Values.username | quote }} 
           - name: MARIADB_DATABASE
-              value: {{ .Values.userdatabase | quote }}            
+            value: {{ .Values.userdatabase | quote }}            
           ports:
           - containerPort: 3306
 
