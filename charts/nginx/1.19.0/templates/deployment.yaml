@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: {{ template "nginx.fullname" . }}
 spec:
+  selector:
+    matchLabels:
+      app: {{ template "nginx.name" . }}
   template:
     metadata:
       labels:
