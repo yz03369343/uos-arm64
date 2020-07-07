@@ -7,9 +7,7 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-{{- if .Values.service.nodePort }}
-      nodePort: {{ .Values.service.nodePort }}
-{{- end }}
+      nodePort: 
   selector:
     app: {{ template "httpd.name" . }}
     release: "{{ .Release.Name }}"
