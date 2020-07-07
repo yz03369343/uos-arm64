@@ -1,5 +1,5 @@
 categories:
-- nginx
+- web
 questions:
 - variable: defaultImage
   default: "true"

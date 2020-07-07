@@ -1,0 +1,8 @@
+appVersion: 10.5.4
+description: "mariadb 10.5.4"
+name: mariadb
+version: 10.5.4
+kewords:
+- web
+home: https://www.mariadb.com/
+icon: http://10.10.15.32/image/mariadb-logo.png

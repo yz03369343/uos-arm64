@@ -1,5 +1,5 @@
 categories:
-- web
+- database
 questions:
 - variable: defaultImage
   default: "true"
@@ -10,14 +10,15 @@ questions:
   group: "Container Images"
   subquestions:
   - variable: image.repository
-    default: "10.10.15.32:5443/arm64/httpd"
+    default: "10.10.15.32:5443/arm64/mariadb"
     description: "Docker image name"
     type: string
     label: Image Name
   - variable: image.tag
-    default: "2.4.43"
+    default: "10.5.4"
     description: "Docker image tag"
     type: string
     label: Image Tag
+  
 
 
