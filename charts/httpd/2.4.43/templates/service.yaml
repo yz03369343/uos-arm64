@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ template "httpd.fullname" . }}
 spec:
-  type: Nodeort
+  type: NodePort
   ports:
     - port: 80
       targetPort: 80
