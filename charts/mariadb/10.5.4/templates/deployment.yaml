@@ -17,19 +17,19 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           env:
-          - name: MARIADB_ROOT_PASSWORD
+          - name: MYSQL_ROOT_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ template "mariadb.fullname" . }}
                 key: mariadb-root-password
-          - name: MARIADB_PASSWORD
+          - name: MYSQL_PASSWORD
             valueFrom:
               secretKeyRef:
                 name: {{ template "mariadb.fullname" . }}
                 key: mariadb-password
-          - name: MARIADB_USER
+          - name: MYSQL_USER
             value: {{ .Values.username | quote }} 
-          - name: MARIADB_DATABASE
+          - name: MYSQL_DATABASE
             value: {{ .Values.userdatabase | quote }}            
           ports:
           - containerPort: 3306
