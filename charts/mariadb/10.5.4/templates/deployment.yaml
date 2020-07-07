@@ -17,18 +17,16 @@ spec:
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           env:
-          {{- if .Values.rootpassword }}
           - name: MARIADB_ROOT_PASSWORD
             valueFrom:
-            secretKeyRef:
-              name: {{ template "mariadb.fullname" . }}
-              key: mariadb-root-password
-          {{- end }}
+              secretKeyRef:
+                name: {{ template "mariadb.fullname" . }}
+                key: mariadb-root-password
           - name: MARIADB_PASSWORD
             valueFrom:
-            secretKeyRef:
-              name: {{ template "mariadb.fullname" . }}
-              key: mariadb-password
+              secretKeyRef:
+                name: {{ template "mariadb.fullname" . }}
+                key: mariadb-password
            - name: MARIADB_USER
               value: {{ .Values.username | quote }} 
            - name: MARIADB_DATABASE
