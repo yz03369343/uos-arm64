@@ -3,11 +3,10 @@ kind: Service
 metadata:
   name: {{ template "httpd.fullname" . }}
 spec:
-  type: {{ .Values.service.type }}
+  type: Nodeort
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 
   selector:
     app: {{ template "httpd.name" . }}
     release: "{{ .Release.Name }}"
