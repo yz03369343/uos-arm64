@@ -1,0 +1,8 @@
+image:
+  repository: hub.i-soft.com.cn:5080/lxapp/nginx
+  tag: 1.19.0
+  pullPolicy: IfNotPresent
+
+service:
+  type: Nodeport
+  port: 80
