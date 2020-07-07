@@ -1,21 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "nginx.fullname" . }}
+  name: {{ template "mariadb.fullname" . }}
 spec:
   selector:
     matchLabels:
-      app: {{ template "nginx.name" . }}
+      app: {{ template "mariadb.name" . }}
   template:
     metadata:
       labels:
-        app: {{ template "nginx.name" . }}
+        app: {{ template "mariadb.name" . }}
         release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: kingbase
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          env:
+          {{- if .Values.rootpassword }}
+          - name: MARIADB_ROOT_PASSWORD
+            valueFrom:
+            secretKeyRef:
+              name: {{ template "mariadb.fullname" . }}
+              key: mariadb-root-password
+          {{- end }}
+          - name: MARIADB_PASSWORD
+            valueFrom:
+            secretKeyRef:
+              name: {{ template "mariadb.fullname" . }}
+              key: mariadb-password
+           - name: MARIADB_USER
+              value: {{ .Values.username | quote }} 
+           - name: MARIADB_DATABASE
+              value: {{ .Values.userdatabase | quote }}            
           ports:
-          - containerPort: 80
+          - containerPort: 3306
 

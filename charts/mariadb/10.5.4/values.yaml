@@ -1,8 +1,9 @@
 image:
-  repository: 10.10.15.32:5443/arm64/nginx
-  tag: 1.19.0
+  repository: 10.10.15.32:5443/arm64/mariadb
+  tag: 10.5.4
   pullPolicy: IfNotPresent
 
-service:
-  type: Nodeport
-  port: 80
+username:
+userpassword:
+userdatabase:
+rootpassword: 
