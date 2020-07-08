@@ -55,7 +55,7 @@ spec:
             value: wordpress           
           - name: MYSQL_DATABASE
             value: wordpress
-          - name: MYSQL_ALLOW_EMPTY_PASSWORD
-            value: "yse"
+          - name: MYSQL_ROOT_PASSWORD
+            value: wordpress
           ports:
           - containerPort: 3306
