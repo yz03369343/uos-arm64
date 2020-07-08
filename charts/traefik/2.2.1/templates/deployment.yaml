@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "tradfik.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "tradfik.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "tradfik.name" . }}
+    spec:
+      containers:
+        - name: tradfik
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          ports:
+          - containerPort: 80
+            containerPort: 8080
+
