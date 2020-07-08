@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "wordpress.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "wordpress.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "wordpress.name" . }}
+        release: "{{ .Release.Name }}"
+    spec:
+      initContainers:
+        - name: wordpress-database
+          image: "{{ .Values.dbimage.repository }}:{{ .Values.dbimage.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          env:
+          - name: MYSQL_ALLOW_EMPTY_PASSWORD
+            value: yes
+          - name: MYSQL_DATABASE
+            value: wordpress
+          ports:
+          - containerPort: 3306
+      containers:
+        - name: wordpress
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          env:
+          - name: WORDPRESS_DB_USER
+            value: root
+          ports:
+          - containerPort: 80
