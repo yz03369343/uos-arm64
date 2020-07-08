@@ -9,5 +9,4 @@ spec:
       targetPort: 9200
   selector:
     app: {{ template "elasticsearch.name" . }}
-    release: "{{ .Release.Name }}"
 

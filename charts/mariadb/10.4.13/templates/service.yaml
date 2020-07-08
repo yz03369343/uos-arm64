@@ -12,5 +12,4 @@ spec:
 {{- end }}
   selector:
     app: {{ template "mariadb.name" . }}
-    release: "{{ .Release.Name }}"
 

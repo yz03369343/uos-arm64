@@ -9,5 +9,4 @@ spec:
       targetPort: 4369
   selector:
     app: {{ template "rabbitmq.name" . }}
-    release: "{{ .Release.Name }}"
 

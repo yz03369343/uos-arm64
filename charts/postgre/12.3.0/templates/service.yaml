@@ -12,5 +12,4 @@ spec:
 {{- end }}
   selector:
     app: {{ template "postgre.name" . }}
-    release: "{{ .Release.Name }}"
 

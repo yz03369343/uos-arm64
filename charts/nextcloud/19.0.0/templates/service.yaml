@@ -9,5 +9,4 @@ spec:
       targetPort: 80
   selector:
     app: {{ template "nextcloud.name" . }}
-    release: "{{ .Release.Name }}"
 

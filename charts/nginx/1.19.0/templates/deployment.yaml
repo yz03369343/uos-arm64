@@ -10,7 +10,6 @@ spec:
     metadata:
       labels:
         app: {{ template "nginx.name" . }}
-        release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: nginx

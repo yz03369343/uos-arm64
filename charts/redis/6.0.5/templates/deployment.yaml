@@ -10,7 +10,6 @@ spec:
     metadata:
       labels:
         app: {{ template "redis.name" . }}
-        release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: redis

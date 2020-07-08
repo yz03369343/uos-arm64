@@ -10,7 +10,6 @@ spec:
     metadata:
       labels:
         app: {{ template "tomcat.name" . }}
-        release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: tomcat

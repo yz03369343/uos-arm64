@@ -9,5 +9,4 @@ spec:
       targetPort: 6379
   selector:
     app: {{ template "redis.name" . }}
-    release: "{{ .Release.Name }}"
 

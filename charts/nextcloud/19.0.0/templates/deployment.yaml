@@ -10,7 +10,6 @@ spec:
     metadata:
       labels:
         app: {{ template "nextcloud.name" . }}
-        release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: nextcloud

@@ -10,7 +10,6 @@ spec:
     metadata:
       labels:
         app: {{ template "httpd.name" . }}
-        release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: httpd

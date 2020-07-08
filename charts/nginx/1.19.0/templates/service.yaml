@@ -12,5 +12,4 @@ spec:
 {{- end }}
   selector:
     app: {{ template "nginx.name" . }}
-    release: "{{ .Release.Name }}"
 

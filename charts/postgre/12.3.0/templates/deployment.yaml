@@ -10,7 +10,6 @@ spec:
     metadata:
       labels:
         app: {{ template "postgre.name" . }}
-        release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: postgre
