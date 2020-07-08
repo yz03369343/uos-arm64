@@ -1,0 +1,8 @@
+image:
+  repository: 10.10.15.32:5443/arm64/xwiki
+  tag: 12.5.1
+  pullPolicy: IfNotPresent
+dbimage:
+  repository: 10.10.15.32:5443/arm64/postgres
+  tag: 12.3.0
+
