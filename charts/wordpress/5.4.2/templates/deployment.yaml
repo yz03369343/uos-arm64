@@ -18,7 +18,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           env:
           - name: MYSQL_ALLOW_EMPTY_PASSWORD
-            value: yes
+            value: “yes”
           - name: MYSQL_DATABASE
             value: wordpress
           ports:
