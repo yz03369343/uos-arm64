@@ -1,7 +1,7 @@
-appVersion: 9.0.0
-description: "tomcat 9.0.0"
+appVersion: 9.0.37
+description: "tomcat 9.0.37"
 name: tomcat
-version: 9.0.0
+version: 9.0.37
 kewords:
 - web
 home: https://www.tomcat.com/

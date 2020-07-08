@@ -1,5 +1,5 @@
 categories:
-- app
+- web
 questions:
 - variable: defaultImage
   default: "true"
@@ -15,7 +15,7 @@ questions:
     type: string
     label: Image Name
   - variable: image.tag
-    default: "9.0.0"
+    default: "9.0.37"
     description: "Docker image tag"
     type: string
     label: Image Tag
