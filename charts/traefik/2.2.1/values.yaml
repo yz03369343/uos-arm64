@@ -1,4 +1,4 @@
 image:
-  repository: 10.10.15.32:5443/arm64/tradfik
+  repository: 10.10.15.32:5443/arm64/traefik
   tag: 2.2.1
   pullPolicy: IfNotPresent
