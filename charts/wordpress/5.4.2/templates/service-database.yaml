@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ template "wordpress.fullname" . }}-database
 spec:
-  type: ClusterIP
+  type: NodePort
   ports:
     - port: 3306
       targetPort: 3306
