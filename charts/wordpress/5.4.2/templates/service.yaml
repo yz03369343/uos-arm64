@@ -9,4 +9,3 @@ spec:
       targetPort: 80
   selector:
     app: {{ template "wordpress.name" . }}
-    release: "{{ .Release.Name }}"
