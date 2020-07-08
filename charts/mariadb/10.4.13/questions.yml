@@ -15,7 +15,7 @@ questions:
     type: string
     label: Image Name
   - variable: image.tag
-    default: "10.5.4"
+    default: "10.4.13"
     description: "Docker image tag"
     type: string
     label: Image Tag
