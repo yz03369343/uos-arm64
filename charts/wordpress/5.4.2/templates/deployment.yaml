@@ -10,7 +10,6 @@ spec:
     metadata:
       labels:
         app: {{ template "wordpress.name" . }}
-        release: "{{ .Release.Name }}"
     spec:
       containers:
         - name: wordpress
@@ -44,7 +43,6 @@ spec:
     metadata:
       labels:
         app: {{ template "wordpress.name" . }}-database
-        release: "{{ .Release.Name }}"-database
     spec:
       containers:
         - name: wordpress-database
