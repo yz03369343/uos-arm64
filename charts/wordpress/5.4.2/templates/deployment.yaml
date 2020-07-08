@@ -12,7 +12,7 @@ spec:
         app: {{ template "wordpress.name" . }}
         release: "{{ .Release.Name }}"
     spec:
-      initContainers:
+      containers:
         - name: wordpress-database
           image: "{{ .Values.dbimage.repository }}:{{ .Values.dbimage.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
