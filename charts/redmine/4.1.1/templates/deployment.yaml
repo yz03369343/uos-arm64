@@ -1,29 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "remind.fullname" . }}
+  name: {{ template "redmine.fullname" . }}
 spec:
   selector:
     matchLabels:
-      app: {{ template "remind.name" . }}
+      app: {{ template "redmine.name" . }}
   template:
     metadata:
       labels:
-        app: {{ template "remind.name" . }}
+        app: {{ template "redmine.name" . }}
     spec:
       containers:
-        - name: remind
+        - name: redmine
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           env:
           - name: REDMINE_DB_USERNAME
-            value: remind
+            value: redmine
           - name: REDMINE_DB_MYSQL
-            value: {{ template "remind.fullname" . }}-database
+            value: {{ template "redmine.fullname" . }}-database
           - name: REDMINE_DB_PASSWORD
-            value: remind            
+            value: redmine            
           - name: REDMINE_DB_DATABASE
-            value: remind                      
+            value: redmine                      
           ports:
           - containerPort: 80
 
@@ -32,28 +32,28 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "remind.fullname" . }}-database
+  name: {{ template "redmine.fullname" . }}-database
 spec:
   selector:
     matchLabels:
-      app: {{ template "remind.name" . }}-database
+      app: {{ template "redmine.name" . }}-database
   template:
     metadata:
       labels:
-        app: {{ template "remind.name" . }}-database
+        app: {{ template "redmine.name" . }}-database
     spec:
       containers:
-        - name: remind-database
+        - name: redmine-database
           image: "{{ .Values.dbimage.repository }}:{{ .Values.dbimage.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           env:
           - name: MYSQL_USER
-            value: remind
+            value: redmine
           - name: MYSQL_PASSWORD
-            value: remind           
+            value: redmine           
           - name: MYSQL_DATABASE
-            value: remind
+            value: redmine
           - name: MYSQL_ROOT_PASSWORD
-            value: remind
+            value: redmine
           ports:
           - containerPort: 3306
