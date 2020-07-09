@@ -47,7 +47,7 @@ spec:
         - mountPath: /var/lib/influxdb
           name: influxdb
       volumes:
-      - hostPath:
+      - name: influxdb
+        hostPath:
           path: /data/rancher/influxdb
-          name: influxdb
 
