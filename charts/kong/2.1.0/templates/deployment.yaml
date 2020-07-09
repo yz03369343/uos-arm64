@@ -11,6 +11,23 @@ spec:
       labels:
         app: {{ template "kong.name" . }}
     spec:
+      initContainers:
+        - name: kong
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          command:
+          - "kong migrations bootstrap"
+          env:
+          - name: KONG_PG_HOST
+            value: {{ template "kong.fullname" . }}-database
+          - name: KONG_PG_PASSWORD
+            value: kong              
+          - name: KONG_PG_USER
+            value: kong
+          - name: KONG_PG_DATABASE
+            value: kong               
+          - name: KONG_DATABASE
+            value: postgres
       containers:
         - name: kong
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
