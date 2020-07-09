@@ -1,0 +1,8 @@
+image:
+  repository: 10.10.15.32:5443/arm64/piwik
+  tag: 3.6.0
+  pullPolicy: IfNotPresent
+dbimage:
+  repository: 10.10.15.32:5443/arm64/mariadb
+  tag: 10.4.13
+
