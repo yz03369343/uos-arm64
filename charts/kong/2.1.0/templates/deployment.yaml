@@ -12,7 +12,7 @@ spec:
         app: {{ template "kong.name" . }}
     spec:
       initContainers:
-        - name: kong
+        - name: kong-init
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
           command:
