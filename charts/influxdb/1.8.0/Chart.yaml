@@ -1,7 +1,7 @@
-appVersion: 10.4.13
+appVersion: 1.8.0
 description: "influxdb 10.5.4"
 name: influxdb
-version: 10.4.13
+version: 1.8.0
 kewords:
 - web
 home: https://www.influxdb.com/
