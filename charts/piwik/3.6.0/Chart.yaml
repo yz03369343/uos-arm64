@@ -1,8 +1,0 @@
-appVersion: 3.6.0
-description: "piwik 3.6.0"
-name: piwik
-version: 3.6.0
-kewords:
-- web
-home: https://www.piwik.com/
-icon: http://10.10.15.32/image/piwik-logo.png
