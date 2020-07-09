@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "backdrop.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "backdrop.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "backdrop.name" . }}
+    spec:
+      containers:
+        - name: backdrop
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          env:
+          - name: BACKDROP_DB_USER
+            value: backdrop
+          - name: BACKDROP_DB_HOST
+            value: {{ template "backdrop.fullname" . }}-database
+          - name: BACKDROP_DB_PASSWORD
+            value: backdrop            
+          - name: BACKDROP_DB_NAME
+            value: backdrop                      
+          ports:
+          - containerPort: 80
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "backdrop.fullname" . }}-database
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "backdrop.name" . }}-database
+  template:
+    metadata:
+      labels:
+        app: {{ template "backdrop.name" . }}-database
+    spec:
+      containers:
+        - name: backdrop-database
+          image: "{{ .Values.dbimage.repository }}:{{ .Values.dbimage.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          env:
+          - name: MYSQL_USER
+            value: backdrop
+          - name: MYSQL_PASSWORD
+            value: backdrop           
+          - name: MYSQL_DATABASE
+            value: backdrop
+          - name: MYSQL_ROOT_PASSWORD
+            value: backdrop
+          ports:
+          - containerPort: 3306
