@@ -20,6 +20,10 @@ spec:
             value: {{ template "kong.fullname" . }}-database
           - name: KONG_PG_PASSWORD
             value: kong              
+          - name: KONG_PG_USER
+            value: kong
+          - name: KONG_PG_DATABASE
+            value: kong               
           - name: KONG_DATABASE
             value: postgres    
           - name: KONG_ADMIN_LISTEN
