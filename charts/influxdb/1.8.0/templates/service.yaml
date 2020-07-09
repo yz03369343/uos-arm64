@@ -8,9 +8,6 @@ spec:
     - port: 8086
       targetPort: 8086
       name: port8086
-    - port: 2003
-      targetPort: 2003
-      name: port2003
   selector:
     app: {{ template "influxdb.name" . }}
 
