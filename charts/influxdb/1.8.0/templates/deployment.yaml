@@ -12,7 +12,7 @@ spec:
         app: {{ template "influxdb.name" . }}
     spec:
       initContainers:
-      - name: influxdb
+      - name: influxdb-init
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
         command:
