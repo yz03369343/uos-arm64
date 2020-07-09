@@ -8,15 +8,12 @@ spec:
     - port: 8000
       targetPort: 8000
       name: port8000
-  ports:
     - port: 8443
       targetPort: 8443
       name: port8443
-  ports:
     - port: 8001
       targetPort: 8001
       name: port8001
-  ports:
     - port: 8444
       targetPort: 8444
       name: port8444
