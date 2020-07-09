@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "remind.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "remind.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "remind.name" . }}
+    spec:
+      containers:
+        - name: remind
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          env:
+          - name: REDMINE_DB_USERNAME
+            value: remind
+          - name: REDMINE_DB_MYSQL
+            value: {{ template "remind.fullname" . }}-database
+          - name: REDMINE_DB_PASSWORD
+            value: remind            
+          - name: REDMINE_DB_DATABASE
+            value: remind                      
+          ports:
+          - containerPort: 80
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "remind.fullname" . }}-database
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "remind.name" . }}-database
+  template:
+    metadata:
+      labels:
+        app: {{ template "remind.name" . }}-database
+    spec:
+      containers:
+        - name: remind-database
+          image: "{{ .Values.dbimage.repository }}:{{ .Values.dbimage.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+          env:
+          - name: MYSQL_USER
+            value: remind
+          - name: MYSQL_PASSWORD
+            value: remind           
+          - name: MYSQL_DATABASE
+            value: remind
+          - name: MYSQL_ROOT_PASSWORD
+            value: remind
+          ports:
+          - containerPort: 3306

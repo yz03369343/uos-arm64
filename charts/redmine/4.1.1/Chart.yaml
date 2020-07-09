@@ -1,0 +1,8 @@
+appVersion: 4.1.1
+description: "remind 4.1.1"
+name: remind
+version: 4.1.1
+kewords:
+- web
+home: https://www.remind.com/
+icon: http://10.10.15.32/image/remind-logo.png
