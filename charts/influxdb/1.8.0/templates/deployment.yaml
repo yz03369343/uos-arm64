@@ -37,11 +37,6 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/influxdb
           name: influxdb
-      volumes:
-      - hostPath:
-          path: /data/rancher/influxdb
-          type: DirectoryOrCreate
-          name: influxdb
       containers:
       - name: influxdb
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -54,6 +49,5 @@ spec:
       volumes:
       - hostPath:
           path: /data/rancher/influxdb
-          type: DirectoryOrCreate
           name: influxdb
 
